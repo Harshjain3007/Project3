@@ -171,7 +171,7 @@ const loginUser = async function (req, res) {
     // login credentials sent through request body
     let email = req.body.email;
     let password = req.body.password;
-
+   if(!email||!password) return res.status(400).send({status:false,msg:"email and password are mandatory"})
     // if email is empty
     if (isValidEmail(email) === false) {
       return res.status(400).send({

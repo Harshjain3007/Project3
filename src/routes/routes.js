@@ -48,7 +48,7 @@ router.get("/books", middleware.authentication, bookController.getBooks);
 // if api is invalid OR wrong URL
 router.all("/*", function (req, res) {
   res
-    .status(404)
+    .status(400)
     .send({ status: false, msg: "The api you requested is not available" });
 });
 
